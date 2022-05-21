@@ -18,7 +18,7 @@
 <body class="hold-transition login-page" style="font-family: 'Poppins'">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>Admin - Yuk akad</b></a>
+    <a href="#"><b>Admin</b></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
