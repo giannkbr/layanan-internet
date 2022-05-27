@@ -1,0 +1,37 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar-toggler:focus {
+  box-shadow: none !important;
+}
+/* Akhri Navbar */
+
+/* Why Us */
+#benefit .hover {
+  -webkit-transition: margin 0.2s ease-in-out;
+  transition: margin 0.2s ease-in-out;
+  -webkit-box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+#benefit .hover:hover {
+  margin-top: -10px;
+  color: #fff;
+  background: #0d6efd !important;
+  -webkit-box-shadow: #0d6efd 0px 2px 8px 0px;
+  box-shadow: #0d6efd 0px 2px 8px 0px;
+}
+/* Why Us Akhir */
+
+/* Contact */
+#contact .btn-light:hover {
+  background-color: #000;
+  color: #fff;
+  border: solid #000 1px;
+}
+/* Contact Akhor */
