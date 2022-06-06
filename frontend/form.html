@@ -84,6 +84,27 @@
                                   <input type="number" class="form-control bg-light" placeholder="Please type here.." />
                                 </div>
                               </form>
+                              <!-- <form class="row g-3">
+                                <div class="col-12">
+                                  <label for="inputAddress" class="form-label">Address</label>
+                                  <input type="text" class="form-control bg-light" id="inputAddress" placeholder="1234 Main St" />
+                                </div>
+                                <div class="col-md-6">
+                                  <label for="inputCity" class="form-label">City</label>
+                                  <input type="text" class="form-control bg-light" id="inputCity" />
+                                </div>
+                                <div class="col-md-4">
+                                  <label for="inputState" class="form-label">State</label>
+                                  <select id="inputState" class="form-select bg-light">
+                                    <option selected>Choose...</option>
+                                    <option>...</option>
+                                  </select>
+                                </div>
+                                <div class="col-md-2">
+                                  <label for="inputZip" class="form-label">Zip</label>
+                                  <input type="text" class="form-control bg-light" id="inputZip" />
+                                </div>
+                              </form> -->
                             </div>
                           </div>
                         </div>
@@ -93,6 +114,65 @@
                       </div>
                     </div>
                     <div id="test-l-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger2">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col text-center pt-5">
+                            <h3 class="text-primary fw-bold">Address</h3>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illum!</p>
+                          </div>
+                        </div>
+                        <div class="row justify-content-center">
+                          <div class="col-7">
+                            <form class="row g-3">
+                              <div class="mb-3 col-12">
+                                <label for="inputAddress" class="form-label">Address</label>
+                                <input type="text" class="form-control bg-light" id="inputAddress" placeholder="1234 Main St" />
+                              </div>
+                              <div class="mb-3 col-md-6">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" class="form-control bg-light" id="inputCity" />
+                              </div>
+                              <div class="mb-3 col-md-4">
+                                <label for="inputState" class="form-label">State</label>
+                                <select id="inputState" class="form-select bg-light">
+                                  <option selected>Choose...</option>
+                                  <option>...</option>
+                                </select>
+                              </div>
+                              <div class="mb-3 col-md-2">
+                                <label for="inputZip" class="form-label">Zip</label>
+                                <input type="text" class="form-control bg-light" id="inputZip" />
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pt-3 text-center">
+                        <button class="btn btn-primary" onclick="stepper1.previous()">Previous</button>
+                        <button class="btn btn-primary" onclick="stepper1.next()">Next</button>
+                      </div>
+                    </div>
+                    <div id="test-l-3" role="tabpanel" class="bs-stepper-pane text-center" aria-labelledby="stepper1trigger3">
+                      <div class="container">
+                        <div class="row">
+                          <div class="col text-center pt-5">
+                            <h3 class="text-primary fw-bold">Order Complited</h3>
+                            <p>Please screenshoot or remember this number</p>
+                          </div>
+                        </div>
+                        <div class="row pt-3">
+                          <div class="col">
+                            <img src="./assets/img/form.png" height="300" width="300" alt="" />
+                            <h2>No Transaksi:</h2>
+                            <h1 class="fw-bold">1631256752382</h1>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button class="btn btn-primary mt-5" onclick="stepper1.previous()">Previous</button>
+                      <button type="submit" class="btn btn-primary mt-5">Submit</button>
+                    </div>
+                    <!-- <div id="test-l-2" role="tabpanel" class="bs-stepper-pane" aria-labelledby="stepper1trigger2">
                       <div class="container">
                         <div class="row">
                           <div class="col text-center pt-5">
@@ -153,20 +233,22 @@
                       <div class="container">
                         <div class="row">
                           <div class="col text-center pt-5">
-                            <h3 class="text-primary fw-bold">Transaction Complited</h3>
+                            <h3 class="text-primary fw-bold">Order Complited</h3>
+                            <p>Please screenshoot or remember this number</p>
                           </div>
                         </div>
-                        <div class="row pt-5">
+                        <div class="row pt-3">
                           <div class="col">
                             <img src="./assets/img/form.png" height="300" width="300" alt="" />
-                            <p class="fw-light text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illum!</p>
+                            <h2>No Transaksi:</h2>
+                            <h1 class="fw-bold">1631256752382</h1>
                           </div>
                         </div>
                       </div>
 
                       <button class="btn btn-primary mt-5" onclick="stepper1.previous()">Previous</button>
                       <button type="submit" class="btn btn-primary mt-5">Submit</button>
-                    </div>
+                    </div> -->
                   </form>
                 </div>
               </div>
