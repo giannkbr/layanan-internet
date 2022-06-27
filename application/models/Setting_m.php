@@ -76,4 +76,12 @@ class Setting_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
+    public function addCarousel($post)
+    {
+        $params = [
+            'images' => $post['images'],
+        ];
+        $this->db->insert('carousel', $params);
+    }
 }
