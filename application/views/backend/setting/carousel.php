@@ -71,7 +71,66 @@
       </div>
     </div>
   </div>
-
+  <!-- Modal Edit -->
+  <?php foreach ($carousel as $r => $data) { ?>
+  <div class="modal fade" id="edit<?= $data->carousel_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Data Carousel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="<?= site_url('setting/editCarousel') ?>" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name">Images</label>
+              <input type="file" name="images" id="images" class="form-control"
+                autocomplete="off">
+              <input type="hidden" id="id" name="id" value="<?= $data->carousel_id ?>" class="form-control"
+                required>
+            </div>
+            <div class="form-gruop">
+            <img src="<?= base_url('assets/images/')?><?= $data->images?>" style=" display: block;
+                width: 40%;" alt="">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+  <!-- Modal delete -->
+  <?php foreach ($carousel as $r => $data) { ?>
+      <div class="modal fade" id="delete<?= $data->carousel_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Hapus Data carousel</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+                      <form action="<?= site_url('setting/deleteCarousel') ?>" method="POST">
+                          <input type="hidden" name="id" value="<?= $data->carousel_id ?>">
+                          Apakah anda yakin akan hapus data carousel?
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                      <button type="submit" class="btn btn-danger">Hapus</button>
+                  </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  <?php } ?>
   <!-- bootstrap datepicker -->
   <script src="<?= base_url('assets/backend') ?>/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
   <script>

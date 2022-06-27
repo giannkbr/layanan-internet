@@ -84,4 +84,22 @@ class Setting_m extends CI_Model
         ];
         $this->db->insert('carousel', $params);
     }
+
+    public function editCarousel($post)
+    {
+      $params = [
+        'images' => $post['images'],
+    ];
+        if (!empty($_FILES['images']['name'])) {
+            $params['images'] = $post['images'];
+        }
+        $this->db->where('carousel_id', $post['id']);
+        $this->db->update('carousel', $params);
+    }
+
+    public function deleteCarousel($carousel_id)
+    {
+        $this->db->where('carousel_id', $carousel_id);
+        $this->db->delete('carousel');
+    }
 }

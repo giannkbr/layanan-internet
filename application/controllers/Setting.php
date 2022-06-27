@@ -129,7 +129,7 @@ class Setting extends CI_Controller
             if ($this->upload->do_upload('images')) {
                 // $carousel = $this->setting_m->getCarousel($post['id'])->row();
                 if ($carousel->images != null) {
-                    $target_file = './assets/images/carousel/' . $carousel->images;
+                    $target_file = './assets/images/' . $carousel->images;
                     unlink($target_file);
                 }
                 $post['images'] =  $this->upload->data('file_name');
@@ -148,6 +148,64 @@ class Setting extends CI_Controller
             $this->session->set_flashdata('error', $error);
             echo "<script>window.location='" . base_url('setting/carousel') . "'; </script>";
         }
+    }
+
+
+    public function editCarousel()
+    {
+        $data['carousel'] = $this->setting_m->getCarousel()->result();
+        $data['company'] = $this->db->get('company')->row_array();
+        $config['upload_path']          = './assets/images';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 10048; // 10 Mb
+        // $config['file_name']             = 'logo';
+        $this->load->library('upload', $config);
+        $post = $this->input->post(null, TRUE);
+
+        if (@FILES['images']['name'] != null) {
+            if ($this->upload->do_upload('images')) {
+                $carousel = $this->setting_m->getCarousel($post['id'])->row();
+                if ($carousel->images != null) {
+                    $target_file = './assets/images/' . $carousel->images;
+                    unlink($target_file);
+                }
+                $post['images'] =  $this->upload->data('file_name');
+                $this->setting_m->editCarousel($post);
+                if ($this->db->affected_rows() > 0) {
+                    $this->session->set_flashdata('success', 'Data carousel berhasil diedit!');
+                }
+                echo "<script>window.location='" . site_url('setting/carousel') . "'; </script>";
+            }else{
+              $error = $this->upload->display_errors();
+              $this->session->set_flashdata('error', $error);
+              echo "<script>window.location='" . base_url('setting/carousel') . "'; </script>";
+            }
+        } else {
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('error', $error);
+            echo "<script>window.location='" . base_url('setting/carousel') . "'; </script>";
+        }
+    }
+
+
+    public function deleteCarousel()
+    {
+        $post = $this->input->post(null, TRUE);
+
+        // delete images
+        $carousel = $this->setting_m->getCarousel($post['id'])->row();
+        if ($carousel->images != null) {
+          $target_file = './assets/images/' . $carousel->images;
+          unlink($target_file);
+        }
+
+        // delete carousel
+        $carousel_id = $this->input->post('id');
+        $this->setting_m->deleteCarousel($carousel_id);
+        if ($this->db->affected_rows() > 0) {
+            $this->session->set_flashdata('success', 'Data Carousel berhasil dihapus');
+        }
+        echo "<script>window.location='" . site_url('setting/carousel') . "'; </script>";
     }
 
 }
