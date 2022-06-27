@@ -127,11 +127,6 @@ class Setting extends CI_Controller
 
         if (@FILES['images']['name'] != null) {
             if ($this->upload->do_upload('images')) {
-                // $carousel = $this->setting_m->getCarousel($post['id'])->row();
-                if ($carousel->images != null) {
-                    $target_file = './assets/images/' . $carousel->images;
-                    unlink($target_file);
-                }
                 $post['images'] =  $this->upload->data('file_name');
                 $this->setting_m->addCarousel($post);
                 if ($this->db->affected_rows() > 0) {
