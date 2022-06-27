@@ -6,12 +6,13 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" class="py-1 bg-secondary" aria-label="Slide 2"></button>
         </div>
         <div class="carousel-inner border border-1">
-          <div class="carousel-item active">
-            <img src="<?= base_url('assets/frontend/') ?>img/1.jpg" class="img-fluid w-100" alt="..." />
+          <?php
+          $i=1;
+          foreach ($carousel as $r => $data) { ?>
+            <div class="carousel-item <?php echo ($i==1) ? "active" : "" ?>">
+            <img src="<?= base_url('assets/images/') ?><?= $data->images ?>" class="img-fluid w-100" alt="..." />
           </div>
-          <div class="carousel-item">
-            <img src="<?= base_url('assets/frontend/') ?>img/2.jpg" class="img-fluid w-100" alt="..." />
-          </div>
+          <?php $i++;} ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
           <span class="carousel-control-prev-icon text-secondary p-4 rounded-circle" aria-hidden="true"></span>
