@@ -29,6 +29,7 @@ class Candidate_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
     public function getInvoiceCustomer($no_services = null)
     {
         $this->db->select('*');
@@ -59,6 +60,7 @@ class Candidate_m extends CI_Model
             'name' => $post['name'],
             'no_ktp' => $post['no_ktp'],
             'email' => $post['email'],
+            'c_status' => $post['c_status'],
             'no_wa' => $post['no_wa'],
             'address' => $post['address'],
         ];

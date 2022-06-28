@@ -12,6 +12,7 @@ class Front extends CI_Controller
 		$data['title'] = 'Home';
 		$data['company'] = $this->db->get('company')->row_array();
     $data['carousel'] = $this->db->get('carousel')->result();
+    $data['item'] = $this->db->get('package_item')->result();
 		$this->template->load('frontend', 'frontend/home', $data);
 	}
 

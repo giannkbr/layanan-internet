@@ -4,7 +4,7 @@ class Package_m extends CI_Model
 {
     public function getPitem($p_item_id = null)
     {
-        $this->db->select('*, package_item.description as descriptionItem, package_item.name as nameItem');
+        $this->db->select('*, package_item.description as description, package_item.description_item as descriptionItem, package_item.name as nameItem');
         $this->db->from('package_item');
         $query = $this->db->get();
         return $query;
@@ -17,6 +17,7 @@ class Package_m extends CI_Model
             'price' => $post['price'],
             'category' => $post['category'],
             'description' => $post['description'],
+            'description_item' => $post['description_item'],
             'date_created' => time()
         ];
         if (!empty($_FILES['picture']['name'])) {
@@ -31,6 +32,7 @@ class Package_m extends CI_Model
             'price' => $post['price'],
             'category' => $post['category'],
             'description' => $post['description'],
+            'description_item' => $post['description_item'],
             'date_created' => time()
         ];
         if (!empty($_FILES['picture']['name'])) {

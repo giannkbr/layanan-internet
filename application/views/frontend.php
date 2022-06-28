@@ -85,7 +85,7 @@
       <div class="container py-5 text-dark">
         <div class="row">
           <div class="col text-center">
-            <h2>Hubungi kami jika ada masalah atau pertanyann</h2>
+            <h2 class="fw-bolder">Hubungi kami jika ada masalah atau pertanyann</h2>
             <p class="py-3">
             <?= $company['description'] ?>
             </p>

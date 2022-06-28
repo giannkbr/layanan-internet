@@ -225,13 +225,7 @@
     <script src="<?= base_url('assets/backend/') ?>js/demo/datatables-demo.js"></script>
     <script src="<?= base_url('assets/backend/') ?>js/select2.full.min.js"></script>
 
-    <script>
-    ClassicEditor
-        .create( document.querySelector( '#editor' ) )
-        .catch( error => {
-            console.error( error );
-        } );
-    </script>
+
 
 </body>
 

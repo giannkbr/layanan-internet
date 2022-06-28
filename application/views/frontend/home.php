@@ -77,26 +77,22 @@
         <div class="row justify-content-center pb-5">
           <div class="col-lg-7 text-center text-white">
             <h2 class="fw-bold">SOSIAL.NET</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium quisquam omnis sint error laborum hic architecto tempora velit eum provident aliquam quo quae esse eligendi, iure pariatur dolore impedit consequatur.</p>
+            <p>Pilih paket Internet WiFi tercepat untuk kamu.</p>
           </div>
         </div>
         <div class="row">
+         <?php foreach($item as $r => $data) { ?>
           <div class="col-4">
             <div class="bg-light rounded-3 text-center">
               <div class="card-body">
                 <div class="text-end">
-                  <h5 class="card-title bg-danger text-white btn rounded-pill" style="cursor: text">Paket A</h5>
+                  <h5 class="card-title bg-danger text-white btn rounded-pill" style="cursor: text"><?= $data->category ?></h5>
                 </div>
-                <h6 class="card-subtitle py-3 text-primary fw-bold">Lorem ipsum dolor sit amet.</h6>
-                <h3>Rp.999.999 <span class="small" style="font-size: 12px">/ bulan</span></h3>
-                <p class="card-text text-muted py-3">Some quick example text.</p>
+                <h6 class="card-subtitle py-3 text-primary fw-bold"><?= $data->name ?></h6>
+                <h3>Rp <?= number_format($data->price, 0, ',', '.' ); ?><span class="small" style="font-size: 12px">/ bulan</span></h3>
+                <p class="card-text text-muted py-3"><?= $data->description_item ?></p>
                 <div>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
+                  <p class="m-0 text-center"><?= $data->description ?></p>
                 </div>
                 <div class="text-center pt-3 pb-5">
                   <a href="./form.html" class="btn btn-outline-primary">BELANJA SEKARANG</a>
@@ -104,52 +100,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
-            <div class="bg-light rounded-3 text-center">
-              <div class="card-body">
-                <div class="text-end">
-                  <h5 class="card-title bg-primary text-white btn rounded-pill" style="cursor: text">Paket B</h5>
-                </div>
-                <h6 class="card-subtitle py-3 text-primary fw-bold">Lorem ipsum dolor sit amet.</h6>
-                <h3>Rp.999.999 <span class="small" style="font-size: 12px">/ bulan</span></h3>
-                <p class="card-text text-muted py-3">Some quick example text.</p>
-                <div>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
-                </div>
-                <div class="text-center pt-3 pb-5">
-                  <a href="./form.html" class="btn btn-outline-primary">BELANJA SEKARANG</a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="bg-light rounded-3 text-center">
-              <div class="card-body">
-                <div class="text-end">
-                  <h5 class="card-title bg-dark text-white btn rounded-pill" style="cursor: text">Paket C</h5>
-                </div>
-                <h6 class="card-subtitle py-3 text-primary fw-bold">Lorem ipsum dolor sit amet.</h6>
-                <h3>Rp.999.999 <span class="small" style="font-size: 12px">/ bulan</span></h3>
-                <p class="card-text text-muted py-3">Some quick example text.</p>
-                <div>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem ipsum dolor sit amet.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor sit amet consectetur adipisicing.</p>
-                  <p class="m-0"><i class="bi bi-check text-primary"></i> Lorem, ipsum dolor.</p>
-                </div>
-                <div class="text-center pt-3 pb-5">
-                  <a href="./form.html" class="btn btn-outline-primary">BELANJA SEKARANG</a>
-                </div>
-              </div>
-            </div>
-          </div>
+         <?php } ?>
         </div>
       </div>
     </section>

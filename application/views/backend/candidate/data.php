@@ -64,8 +64,8 @@
 
                             </td>
                             <td><?= $data->address ?></td>
-                            <td><?= $data->c_status ?></td>
-                            <td style="text-align: center"><a href="<?= site_url('customer/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                            <td><span class="badge badge-warning"><?= $data->c_status ?></span></td>
+                            <td style="text-align: center"><a href="<?= site_url('candidate/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
