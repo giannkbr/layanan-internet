@@ -141,8 +141,8 @@
             </ul>
           </div>
           <div class="col text-end mt-auto">
-            <a href="#"><i class="h3 mx-2 text-white bi bi-facebook"></i></a>
-            <a href="#"><i class="h3 mx-2 text-white bi bi-instagram"></i></a>
+            <a href="<?= $company['facebook'] ?>"><i class="h3 mx-2 text-white bi bi-facebook"></i></a>
+            <a href="<?= $company['instagram'] ?>"><i class="h3 mx-2 text-white bi bi-instagram"></i></a>
             <a href="#"><i class="h3 mx-2 text-white bi bi-tiktok"></i></a>
           </div>
         </div>
