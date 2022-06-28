@@ -4,7 +4,7 @@ if ($services->num_rows() > 0) {
         <tr>
             <td><?= $no++ ?>.</td>
             <td><?= $data->item_name ?></td>
-            <td><?= $data->category_name ?></td>
+            <td><?= $data->category ?></td>
             <td style="text-align: center"><?= $data->qty ?></td>
             <td style="text-align: right"><?= indo_currency($data->services_price) ?></td>
             <td style="text-align: right">
@@ -19,7 +19,7 @@ if ($services->num_rows() > 0) {
             </td>
             <td style="text-align: right"><?= indo_currency($data->total) ?></td>
             <td><?= $data->remark ?></td>
-            <td style="text-align: center"><a href="#" id="update" data-services_id="<?= $data->services_id ?>" data-item_name="<?= $data->item_name ?>" data-category_name="<?= $data->category_name ?>" data-price="<?= $data->services_price ?>" data-qty="<?= $data->qty ?>" data-disc="<?= $data->disc ?>" data-remark="<?= $data->remark ?>" data-no_services="<?= $data->no_services ?>" data-total="<?= $data->total ?>" data-toggle="modal" data-target="#modal-item-edit" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="#" data-toggle="modal" data-target="#DeleteModal<?= $data->services_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+            <td style="text-align: center"><a href="#" id="update" data-services_id="<?= $data->services_id ?>" data-item_name="<?= $data->item_name ?>" data-category="<?= $data->category ?>" data-price="<?= $data->services_price ?>" data-qty="<?= $data->qty ?>" data-disc="<?= $data->disc ?>" data-remark="<?= $data->remark ?>" data-no_services="<?= $data->no_services ?>" data-total="<?= $data->total ?>" data-toggle="modal" data-target="#modal-item-edit" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="#" data-toggle="modal" data-target="#DeleteModal<?= $data->services_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
         </tr>
 
 <?php
@@ -52,7 +52,7 @@ if ($services->num_rows() > 0) {
                 </div>
                 <div class="form-group">
                     <label for="category">Category</label>
-                    <input type="text" id="category_name" name="category" class="form-control" readonly>
+                    <input type="text" id="category" name="category" class="form-control" readonly>
                 </div>
                 <div class="form-group">
                     <div class="row">

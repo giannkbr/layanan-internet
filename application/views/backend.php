@@ -54,6 +54,11 @@
                     <i class="fas fa-users fa-tachometer-alt"></i>
                     <span>Pelanggan</span></a>
             </li>
+            <li class="nav-item <?= $title == 'Candidate' | $title == 'Add candidate' ? 'active' : '' ?>">
+                <a class="nav-link" href="<?= site_url('candidate') ?>">
+                    <i class="fas fa-users fa-tachometer-alt"></i>
+                    <span>Calon Pelanggan</span></a>
+            </li>
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item <?= $title == 'Item Package' | $title == 'Category Package'  ? 'active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

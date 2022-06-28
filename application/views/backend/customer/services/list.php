@@ -138,7 +138,7 @@
                                     <td style="text-align: center"><?= $no++ ?>.</td>
                                     <td><?= $data->nameItem ?></td>
                                     <td><?= indo_currency($data->price) ?></td>
-                                    <td><?= $data->category_name ?></td>
+                                    <td><?= $data->category ?></td>
                                     <form action="<?= site_url('services/add/' . $customer->no_services) ?>" method="post">
                                         <td>
                                             <input type="number" name="qty" class="form-control input-number" value="1" min="1" max="100">
@@ -146,7 +146,6 @@
                                         <td style="text-align: center">
                                             <input type="hidden" value="<?= $customer->no_services ?>" name="no_services">
                                             <input type="hidden" value="<?= $data->p_item_id ?>" name="item_id">
-                                            <input type="hidden" value="<?= $data->p_category_id ?>" name="category_id">
                                             <input type="hidden" value="<?= $data->price ?>" name="price">
                                             <button class="btn btn-success" type="submit" title="Add"><i class="fa fa-plus"> Tambahkan</i></button>
                                     </form>

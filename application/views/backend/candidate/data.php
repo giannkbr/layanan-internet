@@ -1,6 +1,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <a href="<?= site_url('customer/add') ?>" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah</a>
+    <!-- <a href="<?= site_url('customer/add') ?>" class="d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i> Tambah</a> -->
 </div>
 <?php $this->view('messages') ?>
 <!-- DataTales Example -->
@@ -41,7 +41,7 @@
                 </tfoot>
                 <tbody>
                     <?php $no = 1;
-                    foreach ($customer as $r => $data) { ?>
+                    foreach ($candidate as $r => $data) { ?>
                         <tr>
                             <td style="text-align: center"><?= $no++ ?>.</td>
                             <td><?= $data->no_services ?> <br>
@@ -76,7 +76,7 @@
 
 <!-- Modal Hapus -->
 <?php
-foreach ($customer as $r => $data) { ?>
+foreach ($candidate as $r => $data) { ?>
     <div class="modal fade" id="DeleteModal<?= $data->customer_id ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

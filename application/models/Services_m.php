@@ -5,10 +5,10 @@ class Services_m extends CI_Model
 
     public function getServices($no_services = null)
     {
-        $this->db->select('*, package_item.name as item_name, package_category.name as category_name, services.price as services_price');
+        $this->db->select('*, package_item.name as item_name, services.price as services_price');
         $this->db->from('services');
         $this->db->join('package_item', 'package_item.p_item_id = services.item_id');
-        $this->db->join('package_category', 'package_category.p_category_id = services.category_id');
+        // $this->db->join('package_category', 'package_category.p_category_id = services.category_id');
         if ($no_services != null) {
             $this->db->where('no_services', $no_services);
         }
@@ -27,10 +27,10 @@ class Services_m extends CI_Model
     }
     public function getServicesDetail($no_services = null)
     {
-        $this->db->select('*, package_item.name as item_name, package_category.name as category_name, services.price as services_price');
+        $this->db->select('*, package_item.name as item_name, services.price as services_price');
         $this->db->from('services');
         $this->db->join('package_item', 'package_item.p_item_id = services.item_id');
-        $this->db->join('package_category', 'package_category.p_category_id = services.category_id');
+        // $this->db->join('package_category', 'package_category.p_category_id = services.category_id');
         if ($no_services != null) {
             $this->db->where('no_services', $no_services);
         }
@@ -57,7 +57,6 @@ class Services_m extends CI_Model
             'price' => $post['price'],
             'qty' => $post['qty'],
             'disc' => 0,
-            'category_id' => $post['category_id'],
             'item_id' => $post['item_id'],
             'total' => $post['qty'] * $post['price'],
             'services_create' => time()
