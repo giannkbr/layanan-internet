@@ -1,4 +1,2 @@
-### Change log
-
-[kurang transaksi]
-[kurang bagian customer, non customer]
+# stater-codeigniter3
+ merupakan stater project yg biasa-biasa aja
