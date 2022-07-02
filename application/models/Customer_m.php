@@ -18,7 +18,6 @@ class Customer_m extends CI_Model
         return $query;
     }
 
-
     public function getNSCustomer($no_services = null)
     {
         $this->db->select('*');
@@ -29,6 +28,7 @@ class Customer_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
     public function getInvoiceCustomer($no_services = null)
     {
         $this->db->select('*');

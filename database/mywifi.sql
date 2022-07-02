@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 28 Jun 2022 pada 11.31
+-- Waktu pembuatan: 02 Jul 2022 pada 13.50
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -144,7 +144,7 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id`, `company_name`, `sub_name`, `description`, `picture`, `logo`, `whatsapp`, `facebook`, `twitter`, `instagram`, `phone`, `email`, `owner`, `video`, `address`, `due_date`, `ppn`, `admin_fee`, `terms`, `policy`, `expired`, `isolir`, `import`, `apps_name`, `cek_bill`, `cek_usage`, `latitude`, `longitude`, `phonecode`, `country`, `currency`, `timezone`, `tawk`, `speedtest`, `maintenance`, `watermark`) VALUES
-(1, 'Social Net', 'Anti social social club', 'ini adalah company yg berlandaskan pancasila', 'picture-191121-62a0af9970.jpg', 'mandiri.png', '085157718575', 'asdasd', 'social.net', 'https://www.instagram.com/vakbarrr/', '6282130415558', 'admin@gmail.com', 'Dhiyaul', 'https://www.youtube.com/watch?v=SiPuvEFaC3g', 'Jakarta barat', 25, 10, 0, '<p>df</p>\r\n', '0', '', 0, 0, 'WIFI', 1, 1, '-7.205830295257313', '107.8256392478943', 62, 0, '', 'Asia/Bangkok', '', '', 0, 0);
+(1, 'Social Net', 'Anti social social club', 'halo', '', '', '085157718575', 'asdasd', 'social.net', 'https://www.instagram.com/vakbarrr/', '6282130415558', 'admin@gmail.com', 'Dhiyaul', 'https://www.youtube.com/watch?v=SiPuvEFaC3g', 'Jakarta barat', 25, 10, 0, '<p>df</p>\r\n', '0', '', 0, 0, 'WIFI', 1, 1, '-7.205830295257313', '107.8256392478943', 62, 0, '', 'Asia/Bangkok', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -211,8 +211,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`customer_id`, `name`, `no_services`, `email`, `register_date`, `due_date`, `address`, `no_wa`, `c_status`, `ppn`, `no_ktp`, `ktp`, `created`, `mode_user`, `user_mikrotik`, `mitra`, `coverage`, `auto_isolir`, `type_id`, `router`, `codeunique`, `phonecode`, `latitude`, `longitude`, `user_profile`, `action`, `type_payment`, `max_due_isolir`, `olt`, `connection`, `cust_amount`, `mac_address`, `level`) VALUES
-(1, 'Gian', '220616171139', 'virgian.akbar@optima-exchange.info', '', 0, '  Jl. Sunan Kalijaga No.63B, RT.2/RW.1\r\nMelawai, Kec. Kby. Baru,', '085157718575', 'pending', 0, '4545435643564353', '', 1655287759, '', '', 0, 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0),
-(3, 'Test pelanggan', '220615125754', 'vakbarrr@gmail.com', '', 0, ' ', '085157718574', 'success', 0, '23423523523532532', '', 1655290684, '', '', 0, 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0);
+(1, 'Gian', '220616171139', 'virgian.akbar@optima-exchange.info', '', 0, ' ', '085157718575', 'pending', 0, '4545435643564353', '', 1655287759, '', '', 0, 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0),
+(3, 'Test pelanggan', '220615125754', 'vakbarrr@gmail.com', '', 0, '   ', '085157718574', 'pending', 0, '23423523523532532', '', 1655290684, '', '', 0, 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -410,6 +410,7 @@ CREATE TABLE `package_item` (
   `price` varchar(125) NOT NULL,
   `picture` text NOT NULL,
   `description` text NOT NULL,
+  `description_item` text NOT NULL,
   `date_created` int(11) NOT NULL,
   `date_update` int(11) NOT NULL,
   `public` int(11) NOT NULL,
@@ -421,11 +422,10 @@ CREATE TABLE `package_item` (
 -- Dumping data untuk tabel `package_item`
 --
 
-INSERT INTO `package_item` (`p_item_id`, `name`, `category`, `price`, `picture`, `description`, `date_created`, `date_update`, `public`, `is_active`, `create_by`) VALUES
-(1, 'Wifi 100Mpbs', 'asdfasdas', '180000', '', 'Kenceng banget ', 1656142631, 0, 0, 0, 0),
-(2, 'Paket 100Mbps', 'internet', '200000', '', ' Paket mantep', 1656143837, 0, 0, 0, 0),
-(3, 'Paket 1Mbps', 'dasdas', '900000', '', ' admin@admin.com', 1656142642, 0, 0, 0, 0),
-(4, '900mbps', 'dasdasdas', '90000', '', ' &lt;input type=\"text\" id=\"name\" name=\"name\" class=\"form-control\" required&gt;', 1656142638, 0, 0, 0, 0);
+INSERT INTO `package_item` (`p_item_id`, `name`, `category`, `price`, `picture`, `description`, `description_item`, `date_created`, `date_update`, `public`, `is_active`, `create_by`) VALUES
+(1, '5 Mbps ', 'Paket A', '100000', '', '<ul><li>Bebas Fair Usage Policy(FUP) / Kouta Unlimited</li><li>Wifi Fiber Modem</li><li>IP Dynamic Private</li><li>Social.Net Shopping Bag</li><li>Social.Net Video</li><li>Social.Net NEO Web Space</li></ul>', 'Baik digunakan untuk 1-3 device.', 1656449284, 0, 0, 0, 0),
+(6, '10 Mbps', 'Paket B', '150000', '', '<ul><li>Bebas Fair Usage Policy(FUP) / Kouta Unlimited</li><li>Wifi Fiber Modem</li><li>IP Dynamic Private</li><li>Social.Net Shopping Bag</li><li>Social.Net Video</li><li>Social.Net NEO Web Space</li></ul>', 'Baik digunakan untuk 1-10 device.', 1656449256, 0, 0, 0, 0),
+(7, '20 Mpbs', 'Paket C', '200000', '', '<ul><li>Bebas Fair Usage Policy(FUP) / Kouta Unlimited</li><li>Wifi Fiber Modem</li><li>IP Dynamic Private</li><li>Social.Net Shopping Bag</li><li>Social.Net Video</li><li>Social.Net NEO Web Space</li></ul>', 'Baik digunakan untuk 1-10 device.', 1656449250, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -684,7 +684,6 @@ CREATE TABLE `services` (
   `services_id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `item_id` int(11) NOT NULL,
-  `category_id` int(11) NOT NULL,
   `no_services` varchar(125) NOT NULL,
   `qty` varchar(128) NOT NULL,
   `price` varchar(128) NOT NULL,
@@ -699,10 +698,10 @@ CREATE TABLE `services` (
 -- Dumping data untuk tabel `services`
 --
 
-INSERT INTO `services` (`services_id`, `email`, `item_id`, `category_id`, `no_services`, `qty`, `price`, `disc`, `total`, `remark`, `services_create`, `create_by`) VALUES
-(1, '', 1, 1, '220615120905', '1', '180000', '100000', '80000', 'Jangan lupa bayar', 1655287813, 0),
-(2, '', 2, 1, '220615125754', '1', '200000', '0', '200000', 'Jangan lupa bayar tanggal 29!', 1655290733, 0),
-(5, '', 1, 1, '220616171139', '1', '180000', '0', '180000', '', 1655393535, 0);
+INSERT INTO `services` (`services_id`, `email`, `item_id`, `no_services`, `qty`, `price`, `disc`, `total`, `remark`, `services_create`, `create_by`) VALUES
+(1, '', 1, '220615120905', '1', '180000', '100000', '80000', 'Jangan lupa bayar', 1655287813, 0),
+(8, '', 1, '220616171139', '1', '100000', '0', '100000', '', 1656610353, 0),
+(9, '', 7, '220615125754', '1', '200000', '0', '200000', '', 1656610423, 0);
 
 -- --------------------------------------------------------
 
@@ -889,8 +888,7 @@ ALTER TABLE `router`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`services_id`),
-  ADD KEY `item_id` (`item_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD KEY `item_id` (`item_id`);
 
 --
 -- Indeks untuk tabel `user`
@@ -978,7 +976,7 @@ ALTER TABLE `logs`
 -- AUTO_INCREMENT untuk tabel `package_item`
 --
 ALTER TABLE `package_item`
-  MODIFY `p_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `p_item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `product`
@@ -1008,7 +1006,7 @@ ALTER TABLE `router`
 -- AUTO_INCREMENT untuk tabel `services`
 --
 ALTER TABLE `services`
-  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

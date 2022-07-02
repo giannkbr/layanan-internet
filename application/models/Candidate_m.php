@@ -7,7 +7,7 @@ class Candidate_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer');
-        $this->db->where('c_status', 'pending');
+        $this->db->where('c_status', 'pending', 'cancel');
         if ($customer_id != null) {
             $this->db->where('customer_id', $customer_id);
         }
