@@ -1,4 +1,5 @@
  <!-- Carousel -->
+ <?php $this->view('messages') ?>
  <section id="carousel">
       <div id="carouselExampleIndicators" class="carousel slide overflow-hidden" data-bs-ride="carousel">
         <div class="carousel-indicators">
