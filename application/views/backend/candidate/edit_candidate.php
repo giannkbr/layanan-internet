@@ -40,9 +40,17 @@
         </div>
         <select class="custom-select" name="c_status" id="inputGroupSelect01">
           <option selected>Choose...</option>
-          <option value="pending">Pending</option>
+          <!-- <option value="pending">Pending</option>
           <option value="success">Success</option>
-          <option value="cancel">Cancel</option>
+          <option value="cancel">Cancel</option> -->
+          <?php
+						for ($no = 1; $no <= 3; $no++)
+						{
+							echo "<option value='$no'";
+							echo $no==$candidate->c_status?'selected':'';
+							echo ">$no</option>";
+						}
+						?>
         </select>
       </div>
 

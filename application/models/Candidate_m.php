@@ -3,11 +3,16 @@
 class Candidate_m extends CI_Model
 {
 
+    // 1, pending verif data
+    // 2, pending nunggu bayar
+    // 3, on proses install
+    // 4, success
+
     public function getCandidate($customer_id = null, $no_services = null)
     {
         $this->db->select('*');
         $this->db->from('customer');
-        $this->db->where('c_status', 'pending', 'cancel');
+        $this->db->where('c_status', '2');
         if ($customer_id != null) {
             $this->db->where('customer_id', $customer_id);
         }
@@ -40,6 +45,7 @@ class Candidate_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
+
     public function add($post)
     {
         $params = [

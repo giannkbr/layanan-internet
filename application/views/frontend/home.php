@@ -95,7 +95,7 @@
                   <p class="m-0 text-center"><?= $data->description ?></p>
                 </div>
                 <div class="text-center pt-3 pb-5">
-                  <a href="./form.html" class="btn btn-outline-primary">BELANJA SEKARANG</a>
+                  <a href="<?= base_url('transaction')?>" class="btn btn-outline-primary">BELANJA SEKARANG</a>
                 </div>
               </div>
             </div>

@@ -63,7 +63,6 @@ class Bill extends CI_Controller
                     array(
                         'invoice_id' => $invoice,
                         'item_id' => $row->item_id,
-                        'category_id' => $row->category_id,
                         'price' => $row->price,
                         'qty' => $row->qty,
                         'disc' => $row->disc,
