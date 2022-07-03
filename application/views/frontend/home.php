@@ -96,7 +96,10 @@
                   <p class="m-0 text-center"><?= $data->description ?></p>
                 </div>
                 <div class="text-center pt-3 pb-5">
-                  <a href="<?= base_url('transaction')?>" class="btn btn-outline-primary">BELANJA SEKARANG</a>
+                  <form action="<?= base_url('transaction')?>" method="post">
+                  <input type="hidden" name="item_id" value="<?= $data->p_item_id ?>">
+                  <button class="btn btn-primary">BELANJA SEKARANG</button>
+                  </form>
                 </div>
               </div>
             </div>

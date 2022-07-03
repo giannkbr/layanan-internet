@@ -7,7 +7,8 @@ class Customer_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer');
-        $this->db->where('c_status', '1');
+        $this->db->where('c_status', '4');
+        $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
         if ($customer_id != null) {
             $this->db->where('customer_id', $customer_id);
         }

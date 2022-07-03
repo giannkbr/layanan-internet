@@ -7,7 +7,7 @@ class Transaction extends CI_Controller {
   public function __construct()
   {
     parent::__construct();
-    $this->load->model(['transaction_m' , 'customer_m', 'services_m']);
+    $this->load->model(['transaction_m' , 'customer_m', 'services_m', 'package_m']);
   }
 
   public function index()
@@ -23,14 +23,18 @@ class Transaction extends CI_Controller {
         $data['title'] = 'Transaction';
         $data['company'] = $this->db->get('company')->row_array();
         $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+        // getItemID
+        $item_id = $this->input->post('item_id');
+        $data['p_item_id'] = $item_id;
+
         $this->template->load('frontend', 'frontend/transaction', $data);
     } else {
+        $no_services = $this->input->post('no_services');
         $post = $this->input->post(null, TRUE);
         $this->transaction_m->add($post);
         if ($this->db->affected_rows() > 0) {
             $this->session->set_flashdata('success', 'Data Pelanggan berhasil disimpan');
         }
-        $no_services = $this->input->post('no_services');
         redirect('transaction/transaction_success/' . $no_services);
     }
   }
@@ -77,6 +81,10 @@ class Transaction extends CI_Controller {
       } else {
           return TRUE;
       }
+  }
+
+  function uploadbukti(){
+
   }
 }
 

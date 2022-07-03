@@ -10,6 +10,15 @@ class Package_m extends CI_Model
         return $query;
     }
 
+    public function getPitemById($p_item_id)
+    {
+        $this->db->select('p_item_id');
+        $this->db->from('package_item');
+        $this->db->where('p_item_id', $p_item_id);
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function addPItem($post)
     {
         $params = [

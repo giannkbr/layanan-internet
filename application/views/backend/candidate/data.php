@@ -6,7 +6,7 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold">Data Calon Pelanggan</h6>
+        <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Menunggu Verifikasi Data</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -17,9 +17,9 @@
                         <th>No Layanan</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Pilihan Paket</th>
                         <th>No KTP</th>
                         <th>No Telp.</th>
-                        <th style="width: 400px">Tagihan / Bulan</th>
                         <th>Alamat</th>
                         <th>Status</th>
                         <th style="text-align: center">Aksi</th>
@@ -31,9 +31,9 @@
                         <th>No Layanan</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Pilihan Paket</th>
                         <th>No KTP</th>
                         <th>No Telp.</th>
-                        <th>Tagihan / Bulan</th>
                         <th>Alamat</th>
                         <th>Status</th>
                         <th style="text-align: center;width: 100px">Aksi</th>
@@ -45,27 +45,17 @@
                         <tr>
                             <td style="text-align: center"><?= $no++ ?>.</td>
                             <td><?= $data->no_services ?> <br>
-                                <a href="<?= site_url('services/detail/') ?><?= $data->no_services ?>" class="btn btn-success" style="font-size: smaller">Rincian Paket</a>
+
                             </td>
                             <td><?= $data->name ?></td>
                             <td><?= $data->email ?></td>
+                            <td><?= $data->category ?></td>
                             <td><?= $data->no_ktp ?></td>
                             <td><?= $data->no_wa ?></td>
-                            <td style="text-align:right; font-weight:bold ">
-                                <?php $query = "SELECT *
-                                    FROM `services`
-                                        WHERE `services`.`no_services` = $data->no_services";
-                                $querying = $this->db->query($query)->result(); ?>
-                                <?php $subtotal = 0;
-                                foreach ($querying as  $dataa)
-                                    $subtotal += (int) $dataa->total;
-                                ?>
-                                <?= indo_currency($subtotal) ?>
-
-                            </td>
                             <td><?= $data->address ?></td>
-                            <td><span class="badge badge-warning"><?= $data->c_status ?></span></td>
-                            <td style="text-align: center"><a href="<?= site_url('candidate/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                            <td><span class="badge badge-secondary"><?= $data->status_name ?></span></td>
+                            <a href="<?= site_url('candidate/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a>
+                            <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -73,6 +63,133 @@
         </div>
     </div>
 </div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Menunggu Pembayaran</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr style="text-align: center">
+                        <th style="text-align: center; width:20px">No</th>
+                        <th>No Layanan</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pilihan Paket</th>
+                        <th>No KTP</th>
+                        <th>No Telp.</th>
+                        <th>Alamat</th>
+                        <th>Bukti Pembayaran</th>
+                        <th>Status</th>
+                        <th style="text-align: center">Aksi</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr style="text-align: center">
+                        <th style="text-align: center">No</th>
+                        <th>No Layanan</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pilihan Paket</th>
+                        <th>No KTP</th>
+                        <th>No Telp.</th>
+                        <th>Alamat</th>
+                        <th>Bukti Pembayaran</th>
+                        <th>Status</th>
+                        <th style="text-align: center;width: 100px">Aksi</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($candidatependingpayment as $r => $data) { ?>
+                        <tr>
+                            <td style="text-align: center"><?= $no++ ?>.</td>
+                            <td><?= $data->no_services ?> <br>
+
+                            </td>
+                            <td><?= $data->name ?></td>
+                            <td><?= $data->email ?></td>
+                            <td><?= $data->category ?></td>
+                            <td><?= $data->no_ktp ?></td>
+                            <td><?= $data->no_wa ?></td>
+                            <td><?= $data->address ?></td>
+                            <td><?= $data->bukti_pembayaran ?></td>
+                            <td><span class="badge badge-warning"><?= $data->status_name ?></span></td>
+                            <td>
+                            <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
+                            <?php if ($data->c_status === '2') { ?>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, Berhasil diverifikasi. Silakan melakukan pembayaran untuk melakukan proses installasi. Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
+                            <?php } ?>
+                            <a href="<?= site_url('candidate/editPendingPayment/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Proses</h6>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr style="text-align: center">
+                        <th style="text-align: center; width:20px">No</th>
+                        <th>No Layanan</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pilihan Paket</th>
+                        <th>No KTP</th>
+                        <th>No Telp.</th>
+                        <th>Alamat</th>
+                        <th>Status</th>
+                        <th style="text-align: center">Aksi</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr style="text-align: center">
+                        <th style="text-align: center">No</th>
+                        <th>No Layanan</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>Pilihan Paket</th>
+                        <th>No KTP</th>
+                        <th>No Telp.</th>
+                        <th>Alamat</th>
+                        <th>Status</th>
+                        <th style="text-align: center;width: 100px">Aksi</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    <?php $no = 1;
+                    foreach ($candidateproses as $r => $data) { ?>
+                        <tr>
+                            <td style="text-align: center"><?= $no++ ?>.</td>
+                            <td><?= $data->no_services ?> <br>
+
+                            </td>
+                            <td><?= $data->name ?></td>
+                            <td><?= $data->email ?></td>
+                            <td><?= $data->category ?></td>
+                            <td><?= $data->no_ktp ?></td>
+                            <td><?= $data->no_wa ?></td>
+                            <td><?= $data->address ?></td>
+                            <td><span class="badge badge-info"><?= $data->status_name ?></span></td>
+                            <td style="text-align: center"><a href="<?= site_url('candidate/editProses/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 
 <!-- Modal Hapus -->
 <?php
@@ -87,7 +204,7 @@ foreach ($candidate as $r => $data) { ?>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <?php echo form_open_multipart('customer/delete') ?>
+                    <?php echo form_open_multipart('candidate/delete') ?>
                     <input type="hidden" name="customer_id" value="<?= $data->customer_id ?>" class="form-control">
                     <input type="hidden" name="no_services" value="<?= $data->no_services ?>" class="form-control">
                     Apakah yakin akan hapus No Layanan <?= $data->no_services ?> A/N <?= $data->name ?> ?

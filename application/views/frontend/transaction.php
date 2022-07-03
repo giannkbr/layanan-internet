@@ -17,26 +17,27 @@
                     <div class="mb-3">
                       <label class="form-label">Nama Lengkap</label>
                       <input type="text" name="name" value="<?= set_value('name') ?>" class="form-control bg-light"
-                        placeholder="Please type here.." />
+                        placeholder="Masukkan nama lengkap" />
                       <input type="hidden" name="no_services" value="<?= Date('ymdHis') ?>">
+                      <input type="hidden" name="p_item_id" value="<?= $p_item_id ?>">
                       <?= form_error('name', '<small class="text-danger pl-3 ">', '</small>') ?>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
                       <input type="email" name="email" value="<?= set_value('email') ?>" class="form-control bg-light"
-                        placeholder="Please type here.." id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        placeholder="Masukkan emailmu" id="exampleInputEmail1" aria-describedby="emailHelp" />
                       <?= form_error('email', '<small class="text-danger pl-3 ">', '</small>') ?>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Nomer Telepon atau Whatsapp</label>
                       <input type="number" name="no_wa" value="<?= set_value('no_wa') ?>" class="form-control bg-light"
-                        placeholder="Please type here.." />
+                        placeholder="Masukkan Nomer telepon atau whatsapp" />
                       <?= form_error('no_wa', '<small class="text-danger pl-3 ">', '</small>') ?>
                     </div>
                     <div class="mb-3">
                       <label class="form-label">Nomer KTP</label>
                       <input type="number" name="no_ktp" value="<?= set_value('no_ktp') ?>"
-                        class="form-control bg-light" placeholder="Please type here.." />
+                        class="form-control bg-light" placeholder="Masukkan Nomer KTP" />
                       <?= form_error('no_ktp', '<small class="text-danger pl-3 ">', '</small>') ?>
                     </div>
                     <div class="mb-3">

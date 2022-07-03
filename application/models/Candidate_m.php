@@ -12,7 +12,46 @@ class Candidate_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer');
+        $this->db->join('package_item', 'package_item.p_item_id = customer.p_item_id');
+        $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
+        // $this->db->select('package_item.name as nameItem');
+        $this->db->where('c_status', '1');
+        if ($customer_id != null) {
+            $this->db->where('customer_id', $customer_id);
+        }
+        if ($no_services != null) {
+            $this->db->where('no_services', $no_services);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function getCandidatePendingPayment($customer_id = null, $no_services = null)
+    {
+        $this->db->select('*');
+        $this->db->from('customer');
+        $this->db->join('package_item', 'package_item.p_item_id = customer.p_item_id');
+        $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
+        // $this->db->select('package_item.name as nameItem');
         $this->db->where('c_status', '2');
+        if ($customer_id != null) {
+            $this->db->where('customer_id', $customer_id);
+        }
+        if ($no_services != null) {
+            $this->db->where('no_services', $no_services);
+        }
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function getCandidateProses($customer_id = null, $no_services = null)
+    {
+        $this->db->select('*');
+        $this->db->from('customer');
+        $this->db->join('package_item', 'package_item.p_item_id = customer.p_item_id');
+        $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
+        // $this->db->select('package_item.name as nameItem');
+        $this->db->where('c_status', '3');
         if ($customer_id != null) {
             $this->db->where('customer_id', $customer_id);
         }
