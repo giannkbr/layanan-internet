@@ -73,9 +73,11 @@ class Customer_m extends CI_Model
         $params = [
             'nama_pengirim' => $post['nama_pengirim'],
             'nama_bank' => $post['nama_bank'],
+            'bukti_pembayaran' =>  $this->upload->data('file_name'),
             'no_services' => $post['no_services']
         ];
-        $this->db->where('customer_id', $post['no_services']);
+        var_dump($params);
+        $this->db->where('no_services', $post['no_services']);
         $this->db->update('customer', $params);
     }
 

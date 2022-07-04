@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col">
           <div class="mb-5 p-4">
+            <?php $this->view('messages') ?>
             <div>
               <div class="form-group">
                 <div class="container pt-5">
@@ -48,7 +49,7 @@
                           <?= form_error('nama_pengirim', '<small class="text-danger pl-3 ">', '</small>') ?>
                         </div>
                         <div class="d-grid">
-                          <button type="submit" class="btn btn-primary btn-block mt-5 px-5">Submit</button>
+                          <button class="btn btn-primary btn-block mt-5 px-5">Submit</button>
                         </div>
                       </form>
                     </div>

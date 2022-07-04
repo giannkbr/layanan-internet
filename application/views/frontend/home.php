@@ -1,6 +1,6 @@
  <!-- Carousel -->
- <?php $this->view('messages') ?>
  <section id="carousel">
+ <?php $this->view('messages') ?>
       <div id="carouselExampleIndicators" class="carousel slide overflow-hidden" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="py-1 bg-secondary active" aria-current="true" aria-label="Slide 1"></button>

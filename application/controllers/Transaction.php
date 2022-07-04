@@ -83,48 +83,39 @@ class Transaction extends CI_Controller {
       }
   }
 
-  public function uploadbukti($no_services){
+  public function uploadbukti(){
     $data['title'] = 'Form Upload Bukti Transfer';
     $data['company'] = $this->db->get('company')->row_array();
     $data['bank'] = $this->db->get('bank')->row_array();
-    $data['no_services'] = $no_services;
+
     $query  = $this->customer_m->getNSCustomer();
     $this->template->load('frontend', 'frontend/uploadbukti', $data);
   }
 
   public function uploadbuktibayar(){
-    $data['title'] = 'Upload Bukti Transfer';
-    $data['company'] = $this->db->get('company')->row_array();
-    $data['bank'] = $this->db->get('bank')->row_array();
-
-    $config['upload_path']          = './assets/images/bukti';
-    $config['allowed_types']        = 'gif|jpg|png|jpeg';
-    $config['max_size']             = 10048; // 10 Mb
-    $config['file_name']             = 'bukti-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
-    $this->load->library('upload', $config);
-    $post = $this->input->post(null, TRUE);
-
-    if (@FILES['bukti_pembayaran']['name'] != null) {
-        if ($this->upload->do_upload('bukti_pembayaran')) {
-            $post['bukti_pembayaran'] =  $this->upload->data('file_name');
-            var_dump($this->customer_m->uploadbukti($post));
-            if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success', 'Bukti pembayarna berhasil disimpan');
+        $config['upload_path']          = './assets/images/bukti';
+        $config['allowed_types']        = 'gif|jpg|png|jpeg';
+        $config['max_size']             = 10048; // 10 Mb
+        $config['file_name']             = 'bukti-' . date('ymd') . '-' . substr(md5(rand()), 0, 10);
+        $this->load->library('upload', $config);
+        $post = $this->input->post(null, TRUE);
+        if (@FILES['bukti_pembayaran']['name'] != null) {
+            if ($this->upload->do_upload('bukti_pembayaran')) {
+                $this->customer_m->uploadbukti($post);
+                if ($this->db->affected_rows() > 0) {
+                    $this->session->set_flashdata('success', 'Bukti Pembayaran berhasil disimpan');
+                }
+                echo "<script>window.location='" . site_url('transaction/uploadbukti') . "'; </script>";
+            } else {
+              $error = $this->upload->display_errors();
+              $this->session->set_flashdata('error', $error);
+              echo "<script>window.location='" . base_url('transaction/uploadbukti') . "'; </script>";
             }
-            //  echo "<script>window.location='" . site_url('transaction') . "'; </script>";
         } else {
-            $post['bukti_pembayaran'] =  null;
-            $this->customer_m->uploadbukti($post);
-            if ($this->db->affected_rows() > 0) {
-                $this->session->set_flashdata('success', 'Bukti pembayarna berhasil disimpan');
-            }
-            //  echo "<script>window.location='" . site_url('transaction') . "'; </script>";
+            $error = $this->upload->display_errors();
+            $this->session->set_flashdata('error', $error);
+            echo "<script>window.location='" . base_url('transaction/uploadbukti') . "'; </script>";
         }
-    } else {
-        $error = $this->upload->display_errors();
-        $this->session->set_flashdata('error', $error);
-        //  echo "<script>window.location='" . site_url('transaction') . "'; </script>";
-    }
   }
 
 }
