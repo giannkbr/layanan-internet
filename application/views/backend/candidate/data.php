@@ -102,7 +102,7 @@
             <td>
               <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
               <?php if ($data->c_status === '2') { ?>
-              <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, Berhasil diverifikasi. Silakan melakukan pembayaran untuk melakukan proses installasi. Detail Pembayaran : - <?= $data->category ?>, dengan harga <?= indo_currency($data->price) ?> - Biaya Pemasangan <?= indo_currency(250000) ?>. Link pembayaran : <?= base_url("transaction/uploadbukti/") ?> dengan nomer services <?= $data->no_services ?>
+              <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, Berhasil diverifikasi. Silakan melakukan pembayaran untuk melakukan proses installasi. Detail Pembayaran : - <?= $data->category ?>, dengan harga <?= indo_currency($data->price) ?>  Link pembayaran : <?= base_url("transaction/uploadbukti/") ?> dengan nomer services <?= $data->no_services ?>
               Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank"
                 title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
               <?php } ?>

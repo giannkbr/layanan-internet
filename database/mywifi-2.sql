@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Waktu pembuatan: 04 Jul 2022 pada 03.29
+-- Waktu pembuatan: 04 Jul 2022 pada 06.37
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 7.4.29
 
@@ -114,12 +114,11 @@ CREATE TABLE `company` (
   `phone` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `owner` varchar(128) NOT NULL,
-  `video` text NOT NULL,
+  `our_story` text NOT NULL,
   `address` text NOT NULL,
   `due_date` int(11) NOT NULL,
   `ppn` int(11) NOT NULL,
-  `admin_fee` int(11) NOT NULL,
-  `terms` text NOT NULL,
+  `our_mission` text NOT NULL,
   `policy` text NOT NULL,
   `expired` varchar(50) NOT NULL,
   `isolir` int(11) NOT NULL,
@@ -143,8 +142,8 @@ CREATE TABLE `company` (
 -- Dumping data untuk tabel `company`
 --
 
-INSERT INTO `company` (`id`, `company_name`, `sub_name`, `description`, `picture`, `logo`, `whatsapp`, `facebook`, `twitter`, `instagram`, `phone`, `email`, `owner`, `video`, `address`, `due_date`, `ppn`, `admin_fee`, `terms`, `policy`, `expired`, `isolir`, `import`, `apps_name`, `cek_bill`, `cek_usage`, `latitude`, `longitude`, `phonecode`, `country`, `currency`, `timezone`, `tawk`, `speedtest`, `maintenance`, `watermark`) VALUES
-(1, 'Social Net', 'Melayanimu dengan sepenuh hati', 'halo', '', '', '085157718575', 'asdasd', 'social.net', 'https://www.instagram.com/vakbarrr/', '6282130415558', 'admin@gmail.com', 'Dhiyaul', 'https://www.youtube.com/watch?v=SiPuvEFaC3g', 'Jakarta barat', 25, 10, 0, '<p>df</p>\r\n', '0', '', 0, 0, 'WIFI', 1, 1, '-7.205830295257313', '107.8256392478943', 62, 0, '', 'Asia/Bangkok', '', '', 0, 0);
+INSERT INTO `company` (`id`, `company_name`, `sub_name`, `description`, `picture`, `logo`, `whatsapp`, `facebook`, `twitter`, `instagram`, `phone`, `email`, `owner`, `our_story`, `address`, `due_date`, `ppn`, `our_mission`, `policy`, `expired`, `isolir`, `import`, `apps_name`, `cek_bill`, `cek_usage`, `latitude`, `longitude`, `phonecode`, `country`, `currency`, `timezone`, `tawk`, `speedtest`, `maintenance`, `watermark`) VALUES
+(1, 'Social Net', 'Melayanimu dengan sepenuh hati', '<p>halo</p>', '', '', '085157718575', 'asdasd', 'social.net', 'https://www.instagram.com/vakbarrr/', '6282130415558', 'admin@gmail.com', 'Dhiyaul', '<p>Berawal dari social.net</p>', 'Jakarta barat', 25, 10, '<ul><li>Menjadi penyedia layanan yang keren</li><li>Menjadi penyedia layanan yang keren</li><li>Menjadi penyedia layanan yang keren</li><li>Menjadi penyedia layanan yang keren</li><li>Menjadi penyedia layanan yang keren</li></ul>', '0', '', 0, 0, 'WIFI', 1, 1, '-7.205830295257313', '107.8256392478943', 62, 0, '', 'Asia/Bangkok', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -213,8 +212,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`customer_id`, `name`, `no_services`, `email`, `register_date`, `due_date`, `address`, `no_wa`, `p_item_id`, `c_status`, `ppn`, `no_ktp`, `ktp`, `created`, `nama_pengirim`, `nama_bank`, `bukti_pembayaran`, `coverage`, `auto_isolir`, `type_id`, `router`, `codeunique`, `phonecode`, `latitude`, `longitude`, `user_profile`, `action`, `type_payment`, `max_due_isolir`, `olt`, `connection`, `cust_amount`, `mac_address`, `level`) VALUES
 (1, 'Gian', '220616171139', 'virgian.akbar@optima-exchange.info', '', 0, '  ', '0851577185752', 3, '4', 0, '4545435643564353', '', 1655287759, '', '', '0', 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0),
-(39, '5 Mbps', '220703044027', 'asdasd@gmail.com', '', 0, '   asdasdas', '085157718575', 1, '2', 0, '21321', '', 1656816038, '', '', '0', 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0),
-(40, '20 Mpbs', '220703061838', 'vsavassa@gmail.com', '', 0, ' sdfdsf', '0851577185754', 3, '2', 0, '332432423', '', 1656821936, '', '', '', 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0);
+(43, '10 Mbps', '220704062533', 'gian@gmail.com', '', 0, '   adsasdasda', '085157718575', 2, '4', 0, '2323423423', '', 1656908753, 'GIAN', 'BRI', 'bukti-220704-4ac676cff8.png', 0, 0, '', 0, 0, 0, '', '', '', 0, 0, 0, 0, 0, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -725,7 +723,10 @@ INSERT INTO `services` (`services_id`, `email`, `item_id`, `no_services`, `qty`,
 (1, '', 1, '220615120905', '1', '180000', '100000', '80000', 'Jangan lupa bayar', 1655287813, 0),
 (9, '', 7, '220615125754', '1', '200000', '0', '200000', '', 1656610423, 0),
 (11, '', 3, '220616171139', '1', '200000', '0', '200000', '', 1656822456, 0),
-(13, '', 1, '220703042041', '1', '100000', '0', '100000', '', 1656824303, 0);
+(13, '', 1, '220703042041', '1', '100000', '0', '100000', '', 1656824303, 0),
+(14, '', 1, '220703044027', '1', '100000', '0', '100000', '', 1656904788, 0),
+(15, '', 3, '220703061838', '1', '200000', '0', '200000', '', 1656907784, 0),
+(16, '', 2, '220704062533', '1', '150000', '0', '150000', '', 1656908916, 0);
 
 -- --------------------------------------------------------
 
@@ -971,7 +972,7 @@ ALTER TABLE `confirm_payment`
 -- AUTO_INCREMENT untuk tabel `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `c_status`
@@ -1043,7 +1044,7 @@ ALTER TABLE `router`
 -- AUTO_INCREMENT untuk tabel `services`
 --
 ALTER TABLE `services`
-  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
