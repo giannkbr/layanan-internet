@@ -11,6 +11,7 @@
                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, illum!</p>
                 </div>
               </div>
+              <?php $this->view('messages') ?>
               <div class="row justify-content-center">
                 <div class="col-lg-12">
                   <form action="<?= base_url("transaction") ?>" method="POST">

@@ -8,6 +8,7 @@ class Customer_m extends CI_Model
         $this->db->select('*');
         $this->db->from('customer');
         $this->db->where('c_status', '4');
+        $this->db->join('package_item', 'package_item.p_item_id = customer.p_item_id');
         $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
         if ($customer_id != null) {
             $this->db->where('customer_id', $customer_id);
@@ -64,6 +65,17 @@ class Customer_m extends CI_Model
             'address' => $post['address'],
         ];
         $this->db->where('customer_id', $post['customer_id']);
+        $this->db->update('customer', $params);
+    }
+
+    public function uploadbukti($post)
+    {
+        $params = [
+            'nama_pengirim' => $post['nama_pengirim'],
+            'nama_bank' => $post['nama_bank'],
+            'no_services' => $post['no_services']
+        ];
+        $this->db->where('customer_id', $post['no_services']);
         $this->db->update('customer', $params);
     }
 

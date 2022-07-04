@@ -17,6 +17,7 @@
                         <th>No Layanan</th>
                         <th>Nama</th>
                         <th>Email</th>
+                        <th>Pilihan Paket</th>
                         <th>No KTP</th>
                         <th>No Telp.</th>
                         <th style="width: 400px">Tagihan / Bulan</th>
@@ -49,6 +50,7 @@
                             </td>
                             <td><?= $data->name ?></td>
                             <td><?= $data->email ?></td>
+                            <td><?= $data->category ?></td>
                             <td><?= $data->no_ktp ?></td>
                             <td><?= $data->no_wa ?></td>
                             <td style="text-align:right; font-weight:bold ">
@@ -65,7 +67,12 @@
                             </td>
                             <td><?= $data->address ?></td>
                             <td><span class="badge badge-success"><?= $data->status_name ?></span></td>
-                            <td style="text-align: center"><a href="<?= site_url('customer/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                            <td style="text-align: center">
+                            <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
+                            <?php if ($data->c_status === '4') { ?>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, sudah succes. Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
+                            <?php } ?>
+                            <a href="<?= site_url('customer/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>

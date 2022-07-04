@@ -5,7 +5,7 @@ class Front extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model(['services_m', 'customer_m']);
+		$this->load->model(['customer_m', 'package_m', 'services_m', 'setting_m', 'bill_m', 'income_m', 'report_m']);
 	}
 	public function index()
 	{
@@ -26,7 +26,13 @@ class Front extends CI_Controller
   public function status()
 	{
 		$data['title'] = 'Status';
-		$data['company'] = $this->db->get('company')->row_array();
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['customer'] = $this->customer_m->getCustomer()->result();
+    $data['bill'] = $this->bill_m->getInvoice()->result();
+    $data['detail'] = $this->bill_m->getInvoiceDetail()->result();
+    $data['invoice'] = $this->bill_m->invoice_no();
+    $data['bank'] = $this->setting_m->getBank()->row_array();
+    $data['company'] = $this->db->get('company')->row_array();
 		$this->template->load('frontend', 'frontend/status', $data);
 	}
 

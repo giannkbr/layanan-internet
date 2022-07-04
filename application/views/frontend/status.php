@@ -11,7 +11,7 @@
         <div class="row justify-content-center pt-5">
           <div class="col-lg-7">
             <div class="card">
-              <div class="card-body">
+              <!-- <div class="card-body">
                 <h5 class="card-title small text-muted pb-3">No Transaksi: <span class="fw-bold h5 text-dark">012345</span></h5>
                 <div class="row">
                   <div class="col">
@@ -23,7 +23,7 @@
                     <a href="./transaktion.html" class="btn btn-primary px-5">Bayar</a>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>

@@ -22,23 +22,9 @@
                         <th>No Telp.</th>
                         <th>Alamat</th>
                         <th>Status</th>
-                        <th style="text-align: center">Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr style="text-align: center">
-                        <th style="text-align: center">No</th>
-                        <th>No Layanan</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Pilihan Paket</th>
-                        <th>No KTP</th>
-                        <th>No Telp.</th>
-                        <th>Alamat</th>
-                        <th>Status</th>
-                        <th style="text-align: center;width: 100px">Aksi</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <?php $no = 1;
                     foreach ($candidate as $r => $data) { ?>
@@ -53,7 +39,13 @@
                             <td><?= $data->no_ktp ?></td>
                             <td><?= $data->no_wa ?></td>
                             <td><?= $data->address ?></td>
-                            <td><span class="badge badge-secondary"><?= $data->status_name ?></span></td>
+                            <td><span class="badge badge-secondary"><?= $data->status_name ?></span>
+                            </td>
+                            <td>
+                            <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
+                            <?php if ($data->c_status === '1') { ?>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, sedang dilakukan verifikasi data, tunggu informasi selanjutnya dari admin. Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
+                            <?php } ?>
                             <a href="<?= site_url('candidate/edit/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a>
                             <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
@@ -83,24 +75,9 @@
                         <th>Alamat</th>
                         <th>Bukti Pembayaran</th>
                         <th>Status</th>
-                        <th style="text-align: center">Aksi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr style="text-align: center">
-                        <th style="text-align: center">No</th>
-                        <th>No Layanan</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Pilihan Paket</th>
-                        <th>No KTP</th>
-                        <th>No Telp.</th>
-                        <th>Alamat</th>
-                        <th>Bukti Pembayaran</th>
-                        <th>Status</th>
-                        <th style="text-align: center;width: 100px">Aksi</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <?php $no = 1;
                     foreach ($candidatependingpayment as $r => $data) { ?>
@@ -120,7 +97,9 @@
                             <td>
                             <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
                             <?php if ($data->c_status === '2') { ?>
-                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, Berhasil diverifikasi. Silakan melakukan pembayaran untuk melakukan proses installasi. Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, Berhasil diverifikasi. Silakan melakukan pembayaran untuk melakukan proses installasi.
+                                    Link pembayaran : <?= base_url("transaction/uploadbukti/" . $data->no_services)?>
+                                    Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
                             <?php } ?>
                             <a href="<?= site_url('candidate/editPendingPayment/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
@@ -152,20 +131,6 @@
                         <th style="text-align: center">Aksi</th>
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr style="text-align: center">
-                        <th style="text-align: center">No</th>
-                        <th>No Layanan</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Pilihan Paket</th>
-                        <th>No KTP</th>
-                        <th>No Telp.</th>
-                        <th>Alamat</th>
-                        <th>Status</th>
-                        <th style="text-align: center;width: 100px">Aksi</th>
-                    </tr>
-                </tfoot>
                 <tbody>
                     <?php $no = 1;
                     foreach ($candidateproses as $r => $data) { ?>
@@ -181,7 +146,12 @@
                             <td><?= $data->no_wa ?></td>
                             <td><?= $data->address ?></td>
                             <td><span class="badge badge-info"><?= $data->status_name ?></span></td>
-                            <td style="text-align: center"><a href="<?= site_url('candidate/editProses/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
+                            <td>
+                            <?php $link = "https://$_SERVER[HTTP_HOST]"; ?>
+                            <?php if ($data->c_status === '3') { ?>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= indo_tlp($data->no_wa) ?>&text=Plg Yth, Tagihan Internet no <?= $data->no_services ?> a/n _<?= $data->name ?>, pembayaran berhsil dilakukan. Tks %0A%0A%0A<?= $company['company_name'] ?> %0A<?= $company['sub_name'] ?> %0A" target="blank" title="Kirim Notifikasi"><i class="fab fa-whatsapp" style="font-size:25px; color:green"></i></a>
+                            <?php } ?>
+                            <a href="<?= site_url('candidate/editProses/') ?><?= $data->customer_id ?>" title="Edit"><i class="fa fa-edit" style="font-size:25px"></i></a> <a href="" data-toggle="modal" data-target="#DeleteModal<?= $data->customer_id ?>" title="Hapus"><i class="fa fa-trash" style="font-size:25px; color:red"></i></a></td>
                         </tr>
                     <?php } ?>
                 </tbody>
