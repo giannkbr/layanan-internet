@@ -63,9 +63,13 @@ class Setting extends CI_Controller
     public function editAbout()
     {
         $description = $this->input->post('description');
+        $our_story = $this->input->post('our_story');
+        $our_mission = $this->input->post('our_mission');
         $this->db->set('description', $description);
+        $this->db->set('our_story', $our_story);
+        $this->db->set('our_mission', $our_mission);
         $this->db->update('company');
-        $this->session->set_flashdata('success', 'Deskripsi perusahaan sudah diperbaharui.
+        $this->session->set_flashdata('success', 'Tentang perusahaan sudah diperbaharui.
       ');
         redirect('setting/about');
     }

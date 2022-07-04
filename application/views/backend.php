@@ -102,7 +102,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item <?= $title == 'Setting'  ? 'active' : '' ?>" href="<?= site_url('setting') ?>">Perusahaan</a>
                         <a class="collapse-item <?= $title == 'About'  ? 'active' : '' ?>" href="<?= site_url('setting/about') ?>">Tentang Perusahaan</a>
-                        <a class="collapse-item <?= $title == 'About'  ? 'active' : '' ?>" href="<?= site_url('setting/carousel') ?>">Carousel</a>
+                        <a class="collapse-item <?= $title == 'Carousel'  ? 'active' : '' ?>" href="<?= site_url('setting/carousel') ?>">Carousel</a>
                         <a class="collapse-item <?= $title == 'Bank'  ? 'active' : '' ?>" href="<?= site_url('setting/bank') ?>">Rekening Bank</a>
                     </div>
                 </div>

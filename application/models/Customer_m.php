@@ -24,6 +24,8 @@ class Customer_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('customer');
+        $this->db->join('package_item', 'package_item.p_item_id = customer.p_item_id');
+        $this->db->join('c_status', 'c_status.c_status_id = customer.c_status');
         if ($no_services != null) {
             $this->db->where('no_services', $no_services);
         }
