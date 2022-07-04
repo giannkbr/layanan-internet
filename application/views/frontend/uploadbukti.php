@@ -10,11 +10,6 @@
                 <div class="container pt-5">
                   <div class="row">
                     <div class="col-5 border-end p-5">
-                      <h5>Total Pembayaran</h5>
-                      <p>Biaya Pemasangan : Rp 250.000</p>
-                      <p>Biaya Layanan : </p>
-                      <p>Total: $580 USD</p>
-                      <br>
                       <div class="row">
                         <h5>Transfer ke : </h5>
                         <div class="col">

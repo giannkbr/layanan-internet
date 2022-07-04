@@ -33,6 +33,18 @@ class Front extends CI_Controller
 		$this->template->load('frontend', 'frontend/status', $data);
 	}
 
+  public function view_status(){
+    $data['no_services'] = $this->input->post('no_services');
+    // var_dump($no_services);
+    $data['title'] = 'Status Layanan - ' . $data['no_services'];
+    $data['user'] = $this->db->get_where('user', ['email' => $this->session->userdata('email')])->row_array();
+    $data['customer'] =  $this->customer_m->getNSCustomer($data['no_services'])->result();
+    $data['bank'] = $this->setting_m->getBank()->row_array();
+    $data['company'] = $this->db->get('company')->row_array();
+
+    $this->template->load('frontend', 'frontend/status_success', $data);
+  }
+
 
 	public function view_bill()
 	{
