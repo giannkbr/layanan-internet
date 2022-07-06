@@ -15,7 +15,7 @@
                     </div>
                   </div>
                   <div class="row pt-3">
-                    <div class="col">
+                    <div class="col text-center">
                       <img src="<?= base_url('assets/frontend/')?>img/form.png" height="300" width="300" alt="" />
                       <h2>No Transaksi:</h2>
                       <h1 class="fw-bold"><?= $no_services ?></h1>
