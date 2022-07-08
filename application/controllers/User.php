@@ -32,7 +32,7 @@ class User extends CI_Controller
         $data['company'] = $this->db->get('company')->row_array();
         $this->form_validation->set_rules('name', 'Full Name', 'required|trim');
         $this->form_validation->set_rules('phone', 'Phone', 'required|trim|min_length[8]');
-        $this->form_validation->set_rules('gender', 'Gender', 'required|trim');
+
 
         if ($this->form_validation->run() == false) {
             $this->template->load('backend', 'backend/user/edit-profile', $data);
@@ -40,7 +40,6 @@ class User extends CI_Controller
             $name = $this->input->post('name');
             $email = $this->input->post('email');
             $phone = $this->input->post('phone');
-            $gender = $this->input->post('gender');
             $address = $this->input->post('address');
             $image1 = $this->input->post('image1');
 
@@ -69,7 +68,6 @@ class User extends CI_Controller
             $this->db->set('name', $name);
             $this->db->set('email', $email);
             $this->db->set('phone', $phone);
-            $this->db->set('gender', $gender);
             $this->db->set('address', $address);
             $this->db->where('email', $email);
             $this->db->update('user');

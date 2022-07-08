@@ -7,7 +7,7 @@ class User_m extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('user');
-        $this->db->where('email !=', 'ginginabdulgoni@gmail.com');
+        $this->db->where('email !=', 'socialnet@gmail.com');
         if ($id != null) {
             $this->db->where('id', $id);
         }
