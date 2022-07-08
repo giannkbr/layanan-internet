@@ -56,7 +56,9 @@
     <!-- Navbar bawah -->
     <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light py-4">
       <div class="container">
-        <a class="navbar-brand fw-bold text-primary" href="<?= base_url("front") ?>"><img style="width : 20%" src="<?= base_url('assets/images/' . $company['logo']) ?>" alt=""></a>
+        <a class="navbar-brand fw-bold text-primary" href="<?= base_url("front") ?>">
+        <img class="img-fluid" src="<?= base_url('assets/images/' . $company['logo']) ?>" alt="">
+        </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <p class="m-0"><i class="bi bi-list"></i>MENU</p>
         </button>
