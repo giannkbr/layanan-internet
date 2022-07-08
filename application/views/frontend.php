@@ -134,9 +134,28 @@
             </li>
           </ul>
         </div>
+<<<<<<< HEAD
         <div class="col-lg py-2">
           <p class="fw-bold">Contact Us</p>
           <ul class="navbar-nav">
+=======
+      </div>
+    </nav>
+    <!-- Navbar bawah -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow-sm bg-light py-4">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary" href="<?= base_url("front") ?>">
+        <img class="img-fluid" src="<?= base_url('assets/images/' . $company['logo']) ?>" alt="">
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <p class="m-0"><i class="bi bi-list"></i>MENU</p>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="<?= base_url("front") ?>">Home</a>
+            </li>
+>>>>>>> 71a9c95fb4279b3e193a551ceed0bdaa335b2c07
             <li class="nav-item">
               <p class="small"><?= $company['company_name'] ?></p>
             </li>

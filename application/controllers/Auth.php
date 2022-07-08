@@ -78,7 +78,7 @@ class auth extends CI_Controller
 
         $this->load->library('email', $config);
 
-        $this->email->from('Alamat Email', '1112-Project'); // isi Alamat email dan nama pengirim
+        $this->email->from('Alamat Email', 'Social Net'); // isi Alamat email dan nama pengirim
         $this->email->to($this->input->post('email'));
 
         if ($type == 'verify') {

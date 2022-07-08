@@ -4,10 +4,25 @@
 </div>
 <?php $this->view('messages') ?>
 <!-- DataTales Example -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+      aria-selected="true">Verifikasi Data</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+      aria-selected="false">Menunggu Pembayaran</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+      aria-selected="false">Proses</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <!-- <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Menunggu Verifikasi Data</h6>
-  </div>
+  </div> -->
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -58,12 +73,11 @@
       </table>
     </div>
   </div>
-</div>
-
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Menunggu Pembayaran</h6>
   </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <!-- <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Menunggu Pembayaran</h6>
+  </div> -->
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -116,12 +130,11 @@
       </table>
     </div>
   </div>
-</div>
-
-<div class="card shadow mb-4">
-  <div class="card-header py-3">
-    <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Proses</h6>
   </div>
+  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <!-- <div class="card-header py-3">
+    <h6 class="m-0 font-weight-bold">Data Calon Pelanggan Proses</h6>
+  </div> -->
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -172,7 +185,9 @@
       </table>
     </div>
   </div>
+  </div>
 </div>
+
 
 
 <!-- Modal Hapus -->
